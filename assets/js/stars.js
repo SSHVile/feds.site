@@ -39,16 +39,14 @@ function updateStars() {
     star.prevY = star.y;
     star.y += star.speed;
 
-    // Trail
-    ctx.strokeStyle = star.color;
     ctx.globalAlpha = star.opacity * 0.4;
+    ctx.strokeStyle = star.color;
     ctx.lineWidth = star.size;
     ctx.beginPath();
     ctx.moveTo(star.x, star.prevY);
     ctx.lineTo(star.x, star.y);
     ctx.stroke();
 
-    // Head
     ctx.globalAlpha = star.opacity;
     ctx.fillStyle = star.color;
     ctx.beginPath();
@@ -63,8 +61,28 @@ function updateStars() {
   ctx.globalAlpha = 1;
   requestAnimationFrame(updateStars);
 }
-
 updateStars();
 
-// Footer year
+/* BLACKOUT FLASHES */
+const flash = document.createElement("div");
+flash.className = "flash";
+document.body.appendChild(flash);
+
+setInterval(() => {
+  if (Math.random() < 0.25) {
+    flash.style.opacity = "1";
+    setTimeout(() => flash.style.opacity = "0", 40);
+  }
+}, 1800);
+
+/* MOUSE DISTORT */
+const glitch = document.querySelector(".glitch");
+window.addEventListener("mousemove", e => {
+  const x = (e.clientX / window.innerWidth - 0.5) * 2;
+  const y = (e.clientY / window.innerHeight - 0.5) * 2;
+  glitch.style.setProperty("--mx", x.toFixed(2));
+  glitch.style.setProperty("--my", y.toFixed(2));
+});
+
+/* YEAR */
 document.getElementById("year").textContent = new Date().getFullYear();

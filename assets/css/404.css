@@ -19,7 +19,17 @@ canvas {
   z-index: 0;
 }
 
-/* GRAIN OVERLAY */
+/* BLACKOUT FLASH */
+.flash {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* GRAIN */
 body::after {
   content: "";
   position: fixed;
@@ -41,7 +51,6 @@ body::before {
     transparent 2px,
     transparent 4px
   );
-  opacity: 0.25;
   animation: scanMove 6s linear infinite;
   pointer-events: none;
   z-index: 3;
@@ -57,7 +66,6 @@ body::before {
   justify-content: center;
   align-items: center;
   text-align: center;
-  animation: fadeIn 1.2s ease forwards;
 }
 
 /* 🔴 FULL RED GLITCH TEXT */
@@ -68,12 +76,17 @@ body::before {
   letter-spacing: 0.35rem;
   color: #ff1a1a;
   text-shadow:
-    0 0 8px rgba(255,0,0,0.6),
-    0 0 25px rgba(120,0,0,0.8),
-    0 0 45px rgba(80,0,0,0.9);
+    0 0 10px rgba(255,0,0,0.7),
+    0 0 30px rgba(120,0,0,0.9),
+    0 0 55px rgba(60,0,0,1);
   animation:
     glitchShake 1.8s infinite,
-    hardGlitch 6s infinite;
+    hardGlitch 7s infinite;
+  transform:
+    translate(
+      calc(var(--mx, 0) * 6px),
+      calc(var(--my, 0) * 6px)
+    );
 }
 
 .glitch::before,
@@ -82,32 +95,26 @@ body::before {
   position: absolute;
   inset: 0;
   color: #ff1a1a;
-  background: transparent;
-  overflow: hidden;
 }
 
 .glitch::before {
-  text-shadow:
-    -3px 0 rgba(255,40,40,0.9),
-    0 0 25px rgba(120,0,0,0.7);
-  animation: glitchSliceTop 1.2s infinite linear;
+  clip-path: inset(0 0 70% 0);
+  transform: translate(-4px, -2px);
+  opacity: 0.9;
 }
 
 .glitch::after {
-  text-shadow:
-    3px 0 rgba(180,0,0,0.95),
-    0 0 35px rgba(90,0,0,0.9);
-  animation: glitchSliceBottom 0.9s infinite linear;
+  clip-path: inset(60% 0 0 0);
+  transform: translate(4px, 2px);
+  opacity: 0.7;
 }
 
-/* SUBTEXT */
+/* TEXT + BUTTON */
 p {
   margin: 1rem 0 2rem;
-  opacity: 0;
-  animation: fadeUp 1.2s ease forwards 0.3s;
+  opacity: 0.8;
 }
 
-/* BUTTON */
 .btn {
   text-decoration: none;
   color: #000;
@@ -115,11 +122,9 @@ p {
   padding: 0.8rem 2rem;
   border-radius: 999px;
   font-weight: 600;
-  opacity: 0;
-  animation: fadeUp 1.2s ease forwards 0.5s;
   box-shadow:
     0 0 12px rgba(255,255,255,0.4),
-    0 0 30px rgba(120,0,0,0.4);
+    0 0 35px rgba(140,0,0,0.6);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -127,7 +132,7 @@ p {
   transform: translateY(-2px);
   box-shadow:
     0 0 18px rgba(255,255,255,0.6),
-    0 0 45px rgba(160,0,0,0.6);
+    0 0 55px rgba(180,0,0,0.8);
 }
 
 /* FOOTER */
@@ -137,21 +142,10 @@ footer {
   width: 100%;
   text-align: center;
   font-size: 0.85rem;
-  opacity: 0;
-  animation: fadeIn 1.2s ease forwards 1s;
+  opacity: 0.6;
 }
 
 /* ===== ANIMATIONS ===== */
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(16px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 
 @keyframes scanMove {
   from { transform: translateY(0); }
@@ -166,55 +160,14 @@ footer {
   40% { transform: translate(1px, 1px); }
 }
 
-@keyframes glitchSliceTop {
-  0% {
-    clip-path: inset(0 0 80% 0);
-    transform: translate(-3px, -2px);
-  }
-  25% { clip-path: inset(12% 0 55% 0); }
-  50% {
-    clip-path: inset(0 0 85% 0);
-    transform: translate(3px, 2px);
-  }
-  75% { clip-path: inset(18% 0 62% 0); }
-  100% {
-    clip-path: inset(0 0 90% 0);
-    transform: translate(-2px, 1px);
-  }
-}
-
-@keyframes glitchSliceBottom {
-  0% {
-    clip-path: inset(80% 0 0 0);
-    transform: translate(3px, 1px);
-  }
-  25% { clip-path: inset(60% 0 12% 0); }
-  50% {
-    clip-path: inset(85% 0 0 0);
-    transform: translate(-3px, -1px);
-  }
-  75% { clip-path: inset(65% 0 18% 0); }
-  100% {
-    clip-path: inset(90% 0 0 0);
-    transform: translate(2px, -1px);
-  }
-}
-
-/* HARD GLITCH STUTTER */
 @keyframes hardGlitch {
-  0%, 94%, 100% { filter: none; }
-  95% {
-    filter:
-      blur(1px)
-      contrast(180%)
-      saturate(200%);
-    transform: translateX(-4px);
+  0%, 92%, 100% { filter: none; }
+  93% {
+    filter: blur(1px) contrast(200%) saturate(250%);
+    transform: translateX(-6px);
   }
-  96% {
-    filter:
-      blur(2px)
-      contrast(200%)
-      saturate(250%);
-    transform: translateX(4px);
+  94% {
+    filter: blur(2px) contrast(250%) saturate(300%);
+    transform: translateX(6px);
   }
 }
