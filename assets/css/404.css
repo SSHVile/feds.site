@@ -12,7 +12,6 @@ html, body {
   overflow: hidden;
 }
 
-/* STAR CANVAS */
 canvas {
   position: fixed;
   inset: 0;
@@ -26,7 +25,7 @@ canvas {
   background: #000;
   opacity: 0;
   pointer-events: none;
-  z-index: 5;
+  z-index: 6;
 }
 
 /* GRAIN */
@@ -34,9 +33,9 @@ body::after {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
-  z-index: 4;
+  z-index: 5;
 }
 
 /* VHS SCANLINES */
@@ -46,14 +45,14 @@ body::before {
   inset: 0;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(255,0,0,0.035),
-    rgba(255,0,0,0.035) 1px,
+    rgba(255,0,0,0.04),
+    rgba(255,0,0,0.04) 1px,
     transparent 2px,
     transparent 4px
   );
-  animation: scanMove 6s linear infinite;
+  animation: scanMove 5s linear infinite;
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
 }
 
 /* LAYOUT */
@@ -68,25 +67,18 @@ body::before {
   text-align: center;
 }
 
-/* 🔴 FULL RED GLITCH TEXT */
+/* 🔴 FULL RED GLITCH */
 .glitch {
   position: relative;
   font-size: clamp(4rem, 12vw, 8rem);
   font-weight: 900;
   letter-spacing: 0.35rem;
-  color: #ff1a1a;
+  color: #ff0000;
   text-shadow:
-    0 0 10px rgba(255,0,0,0.7),
-    0 0 30px rgba(120,0,0,0.9),
-    0 0 55px rgba(60,0,0,1);
-  animation:
-    glitchShake 1.8s infinite,
-    hardGlitch 7s infinite;
-  transform:
-    translate(
-      calc(var(--mx, 0) * 6px),
-      calc(var(--my, 0) * 6px)
-    );
+    0 0 10px rgba(255,0,0,0.8),
+    0 0 35px rgba(120,0,0,0.9),
+    0 0 60px rgba(60,0,0,1);
+  animation: glitchShake 0.8s infinite;
 }
 
 .glitch::before,
@@ -94,22 +86,21 @@ body::before {
   content: attr(data-text);
   position: absolute;
   inset: 0;
-  color: #ff1a1a;
+  color: #ff0000;
 }
 
 .glitch::before {
-  clip-path: inset(0 0 70% 0);
-  transform: translate(-4px, -2px);
-  opacity: 0.9;
+  clip-path: inset(0 0 60% 0);
+  transform: translate(-5px, -3px);
+  opacity: 0.85;
 }
 
 .glitch::after {
-  clip-path: inset(60% 0 0 0);
-  transform: translate(4px, 2px);
+  clip-path: inset(55% 0 0 0);
+  transform: translate(5px, 3px);
   opacity: 0.7;
 }
 
-/* TEXT + BUTTON */
 p {
   margin: 1rem 0 2rem;
   opacity: 0.8;
@@ -123,19 +114,18 @@ p {
   border-radius: 999px;
   font-weight: 600;
   box-shadow:
-    0 0 12px rgba(255,255,255,0.4),
-    0 0 35px rgba(140,0,0,0.6);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+    0 0 14px rgba(255,255,255,0.4),
+    0 0 40px rgba(160,0,0,0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 0 18px rgba(255,255,255,0.6),
-    0 0 55px rgba(180,0,0,0.8);
+    0 0 20px rgba(255,255,255,0.6),
+    0 0 60px rgba(200,0,0,0.8);
 }
 
-/* FOOTER */
 footer {
   position: absolute;
   bottom: 1rem;
@@ -145,29 +135,17 @@ footer {
   opacity: 0.6;
 }
 
-/* ===== ANIMATIONS ===== */
-
+/* ANIMATIONS */
 @keyframes scanMove {
   from { transform: translateY(0); }
   to { transform: translateY(4px); }
 }
 
 @keyframes glitchShake {
-  0%, 100% { transform: none; }
-  10% { transform: translate(-2px, 1px); }
-  20% { transform: translate(2px, -1px); }
-  30% { transform: translate(-1px, 0); }
-  40% { transform: translate(1px, 1px); }
-}
-
-@keyframes hardGlitch {
-  0%, 92%, 100% { filter: none; }
-  93% {
-    filter: blur(1px) contrast(200%) saturate(250%);
-    transform: translateX(-6px);
-  }
-  94% {
-    filter: blur(2px) contrast(250%) saturate(300%);
-    transform: translateX(6px);
-  }
+  0% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, 1px); }
+  80% { transform: translate(2px, -1px); }
+  100% { transform: translate(0); }
 }

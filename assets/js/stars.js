@@ -12,7 +12,7 @@ window.addEventListener("resize", resize);
 resize();
 
 function randomColor() {
-  return ["#ff4d4d", "#4dd2ff", "#a64dff", "#4dff88", "#ffd24d"]
+  return ["#ff3333", "#ff6666", "#ffaa00", "#66ccff", "#aa66ff"]
     [Math.floor(Math.random() * 5)];
 }
 
@@ -20,69 +20,55 @@ function createStar() {
   return {
     x: Math.random() * canvas.width,
     y: -20,
-    prevY: -20,
+    py: -20,
     size: Math.random() * 2 + 1,
-    speed: Math.random() * 3 + 2.5,
+    speed: Math.random() * 4 + 3,
     color: randomColor(),
-    opacity: Math.random() * 0.6 + 0.4
+    opacity: Math.random() * 0.7 + 0.3
   };
 }
 
-function updateStars() {
-  if (stars.length < STAR_COUNT && Math.random() < 0.15) {
+function loop() {
+  if (stars.length < STAR_COUNT && Math.random() < 0.2) {
     stars.push(createStar());
   }
 
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  stars.forEach((star, i) => {
-    star.prevY = star.y;
-    star.y += star.speed;
+  stars.forEach((s, i) => {
+    s.py = s.y;
+    s.y += s.speed;
 
-    ctx.globalAlpha = star.opacity * 0.4;
-    ctx.strokeStyle = star.color;
-    ctx.lineWidth = star.size;
+    ctx.globalAlpha = s.opacity * 0.35;
+    ctx.strokeStyle = s.color;
+    ctx.lineWidth = s.size;
     ctx.beginPath();
-    ctx.moveTo(star.x, star.prevY);
-    ctx.lineTo(star.x, star.y);
+    ctx.moveTo(s.x, s.py);
+    ctx.lineTo(s.x, s.y);
     ctx.stroke();
 
-    ctx.globalAlpha = star.opacity;
-    ctx.fillStyle = star.color;
+    ctx.globalAlpha = s.opacity;
     ctx.beginPath();
-    ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+    ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+    ctx.fillStyle = s.color;
     ctx.fill();
 
-    if (star.y > canvas.height + 40) {
-      stars.splice(i, 1);
-    }
+    if (s.y > canvas.height + 40) stars.splice(i, 1);
   });
 
   ctx.globalAlpha = 1;
-  requestAnimationFrame(updateStars);
+  requestAnimationFrame(loop);
 }
-updateStars();
+loop();
 
-/* BLACKOUT FLASHES */
-const flash = document.createElement("div");
-flash.className = "flash";
-document.body.appendChild(flash);
-
+/* BLACKOUT FLASH */
+const flash = document.querySelector(".flash");
 setInterval(() => {
-  if (Math.random() < 0.25) {
+  if (Math.random() < 0.35) {
     flash.style.opacity = "1";
-    setTimeout(() => flash.style.opacity = "0", 40);
+    setTimeout(() => flash.style.opacity = "0", 50);
   }
-}, 1800);
-
-/* MOUSE DISTORT */
-const glitch = document.querySelector(".glitch");
-window.addEventListener("mousemove", e => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 2;
-  const y = (e.clientY / window.innerHeight - 0.5) * 2;
-  glitch.style.setProperty("--mx", x.toFixed(2));
-  glitch.style.setProperty("--my", y.toFixed(2));
-});
+}, 1500);
 
 /* YEAR */
 document.getElementById("year").textContent = new Date().getFullYear();
