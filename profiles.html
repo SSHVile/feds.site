@@ -1,98 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Feds | Users </title>
-<meta name="description" content="Fed's User list" />
+<title>Feds | Users</title>
 
-<meta property="og:title" content="Feds | Users" />
-<meta property="og:description" content="Feds's Users" />
-<meta property="og:image" content="https://fedsgov.shop/assets/images/embed.png" />
-<meta property="og:url" content="https://fedsgov.shop/users/" />
-<meta property="og:type" content="website" />
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Feds | Users" />
-<meta name="twitter:description" content="Feds's | Users" />
-<meta name="twitter:image" content="https://fedsgov.shop/assets/images/embed.png" />
+<style>
+body {
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background:#0a0a0a;
+    color:white;
+}
 
-<meta name="theme-color" content="#FFF5EE" />
+/* NAVBAR */
+nav {
+    background:#000;
+    border-bottom:2px solid #222;
+    padding:0.5rem 1rem;
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+nav .container {
+    max-width:1000px;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+nav a {
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+}
+.hamburger {
+    display:none;
+    flex-direction:column;
+    gap:4px;
+    cursor:pointer;
+}
+.hamburger div {
+    width:20px;
+    height:2px;
+    background:white;
+}
+nav ul {
+    display:flex;
+    gap:1rem;
+    list-style:none;
+}
+@media(max-width:768px){
+    nav ul {
+        display:none;
+        position:absolute;
+        right:1rem;
+        top:50px;
+        background:#000;
+        border:1px solid #222;
+        padding:0.5rem;
+        flex-direction:column;
+    }
+    nav ul.active{display:flex;}
+    .hamburger{display:flex;}
+}
 
-    <link rel="icon" href="data:,">
-      <link rel="icon" href="assets/images/favi.ico" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: white; margin: 0; }
+/* CONTENT */
+.content {
+    max-width:900px;
+    margin:25px auto 60px;
+    padding:0 15px;
+}
+h1 {
+    text-align:center;
+    margin-bottom:20px;
+    font-weight:500;
+}
 
-        /* Navbar Styles */
-        nav { background:#000; padding:0.5rem 1rem; border-bottom:2px solid #222; position:sticky; top:0; z-index:999; }
-        nav .container { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:0 auto; }
-        nav .nav-brand a { text-decoration:none; font-weight:600; font-size:1.75rem; animation: rainbow 5s infinite; }
-        nav ul { display:flex; gap:1rem; list-style:none; }
-        nav ul li a { color:white; text-decoration:none; font-weight:500; transition:0.2s; }
-        nav ul li a:hover { animation: rainbow 3s infinite; }
-        .hamburger { display:none; flex-direction:column; cursor:pointer; gap:4px; }
-        .hamburger div { width:20px; height:2px; background:white; }
+/* SEARCH */
+.search-form {
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    margin-bottom:10px;
+}
+.search-box {
+    background:#282828;
+    border:none;
+    color:white;
+    padding:9px 12px;
+    font-size:16px;
+    width:240px;
+}
+.search-button {
+    background:#282828;
+    border:none;
+    color:white;
+    padding:9px 16px;
+    cursor:pointer;
+}
+.showing-text {
+    text-align:center;
+    font-size:13px;
+    color:#888;
+    margin-bottom:20px;
+}
 
-        @media(max-width:768px) {
-            nav ul { display:none; flex-direction:column; background:#000; position:absolute; top:50px; right:1rem; padding:0.5rem; border-radius:4px; border:1px solid #222; width:150px; }
-            nav ul.active { display:flex; }
-            .hamburger { display:flex; }
-        }
+/* RANK SECTIONS */
+.rank-section {
+    overflow:hidden;
+    transition:max-height 0.35s ease, opacity 0.25s ease;
+}
+.rank-section.hidden {
+    max-height:0;
+    opacity:0;
+    margin:0;
+}
+.rank-section h2 {
+    font-size:18px;
+    margin-bottom:8px;
+}
 
-        @keyframes rainbow {
-            0%{color:red;}17%{color:orange;}33%{color:yellow;}50%{color:green;}67%{color:blue;}84%{color:purple;}100%{color:red;}
-        }
+/* TABLE */
+table {
+    width:100%;
+    border-collapse:collapse;
+    background:#080808;
+}
+td {
+    padding:10px 8px;
+    border-bottom:1px solid #333;
+    text-align:left;
+}
+tr:nth-child(even){background:#181818;}
+a { color:inherit; text-decoration:none; }
 
-        /* Content & Tables */
-        .content { max-width:900px; margin:20px auto 50px auto; padding:0 15px; }
-        h1 { text-align:center; font-size:28px; margin-bottom:20px; font-weight:500; }
-        .search-container { text-align:center; margin-bottom:15px; }
-        .search-form { display:flex; justify-content:center; flex-wrap:wrap; gap:5px; }
-        .search-box { background:#282828; border:none; color:white; padding:8px 12px; font-size:16px; width:240px; }
-        .search-box::placeholder { color:#878787; }
-        .search-button { background:#282828; color:white; border:none; padding:8px 16px; cursor:pointer; font-size:14px; }
-        .showing-text { text-align:center; font-size:13px; margin-bottom:20px; color:#878787; }
+/* HIGHLIGHT */
+.highlight {
+    text-shadow:0 0 6px currentColor;
+    filter:brightness(1.25);
+}
 
-        .rank-section { margin-bottom:30px; }
-        .rank-section h2 { font-size:18px; font-weight:500; margin-bottom:10px; }
-
-        table { width:100%; border-collapse:collapse; background:#080808; font-size:14px; }
-        th, td { padding:10px 8px; }
-        th { background:#181818; font-weight:bold; text-align:left; border-bottom:1px solid #333; }
-        td { border-bottom:1px solid #333; }
-        tr:nth-child(even) { background:#181818; }
-        a { color: inherit; text-decoration:none; }
-        a:hover { text-decoration:underline; }
-
-        @media screen and (max-width:768px) {
-            table, thead, tbody, th, td, tr { display:block; }
-            th { display:none; }
-            tr { margin-bottom:15px; }
-            td { display:flex; justify-content:space-between; padding:8px; font-size:13px; }
-            td::before { content: attr(data-label); font-weight:500; color:#878787; }
-            td:first-child { font-weight:bold; }
-        }
-    </style>
+/* MOBILE */
+@media(max-width:768px){
+    table,tbody,tr,td{display:block;width:100%;}
+    tr{
+        background:#181818;
+        border-radius:6px;
+        padding:8px;
+        margin-bottom:12px;
+    }
+    td{
+        padding:6px 0;
+    }
+    td::before{
+        content:attr(data-label) ": ";
+        color:#888;
+        font-weight:500;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<!-- Navbar HTML directly in page -->
 <nav>
   <div class="container">
-    <div class="nav-brand">
-      <a href="#" class="rainbow-text">Feds</a>
-    </div>
+    <a href="#">Feds</a>
     <div class="hamburger" id="hamburger">
       <div></div><div></div><div></div>
     </div>
     <ul id="nav-links">
       <li><a href="index">Home</a></li>
-      <li><a href="#">Profiles</a></li>
       <li><a href="hoa">HOA</a></li>
       <li><a href="join">Discord</a></li>
     </ul>
@@ -100,90 +183,100 @@
 </nav>
 
 <div class="content">
-    <h1>Users</h1>
+<h1>Users</h1>
 
-    <div class="search-container">
-        <form class="search-form" onsubmit="return false;">
-            <input type="text" class="search-box" placeholder="Username...">
-            <button type="button" class="search-button">Search</button>
-        </form>
-    </div>
+<form class="search-form" onsubmit="return false;">
+    <input class="search-box" placeholder="Username...">
+    <button class="search-button">Search</button>
+</form>
 
-    <p class="showing-text">Showing 4 (of 4) users</p>
-  <div class="rank-section">
-        <h2>Admin</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td data-label="ID">1</td>
-                    <td data-label="Username"><a href="users/admin" style="color:#ff0000; font-weight:bold;">Admin</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="rank-section">
-        <h2>Feds</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td data-label="ID">2</td>
-                    <td data-label="Username"><a href="users/vile" style="color:#ff00d0; font-weight:bold;">Vile</a></td>
-                </tr>
-                <tr>
-                    <td data-label="ID">3</td>
-                    <td data-label="Username"><a href="users/keykeymf" style="color:#ff00fb; font-weight:bold;">KeyKeyMfers</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<p class="showing-text"></p>
 
-    <div class="rank-section">
-        <h2>Council</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td data-label="ID">4</td>
-                    <td data-label="Username"><a href="users/devnett.html" style="color:#4f1cf6; font-weight:bold;">DevNett</a></td>
-                </tr>
-                <tr>
-                    <td data-label="ID">5</td>
-                    <td data-label="Username"><a href="users/alex" style="color:#bb71e4; font-weight:bold;">Alex</a></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="rank-section">
+<h2>Admin</h2>
+<table><tbody>
+<tr>
+<td data-label="ID">1</td>
+<td data-label="Username"><a style="color:#ff0000;font-weight:bold;">Admin</a></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="rank-section">
+<h2>Feds</h2>
+<table><tbody>
+<tr>
+<td data-label="ID">2</td>
+<td data-label="Username"><a style="color:#ff00d0;font-weight:bold;">Vile</a></td>
+</tr>
+<tr>
+<td data-label="ID">3</td>
+<td data-label="Username"><a style="color:#ff00fb;font-weight:bold;">KeyKeyMfers</a></td>
+</tr>
+</tbody></table>
+</div>
+
+<div class="rank-section">
+<h2>Council</h2>
+<table><tbody>
+<tr>
+<td data-label="ID">4</td>
+<td data-label="Username"><a style="color:#4f1cf6;font-weight:bold;">DevNett</a></td>
+</tr>
+<tr>
+<td data-label="ID">5</td>
+<td data-label="Username"><a style="color:#bb71e4;font-weight:bold;">Alex</a></td>
+</tr>
+</tbody></table>
+</div>
+
 </div>
 
 <script>
-    // Hamburger toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+const searchBox = document.querySelector('.search-box');
+const searchBtn = document.querySelector('.search-button');
+const sections = document.querySelectorAll('.rank-section');
+const showing = document.querySelector('.showing-text');
 
-    // Live search
-    const searchBox = document.querySelector('.search-box');
-    const userTables = document.querySelectorAll('.rank-section table tbody');
+function applySearch(q, updateURL=true){
+    let total = 0;
 
-    function updateShowingText() {
-        const visibleCount = Array.from(userTables).reduce((acc, tbody) => {
-            return acc + Array.from(tbody.querySelectorAll('tr')).filter(r => r.style.display !== 'none').length;
-        }, 0);
-        document.querySelector('.showing-text').textContent = `Showing ${visibleCount} user${visibleCount !== 1 ? 's' : ''}`;
-    }
-
-    function filterUsers() {
-        const query = searchBox.value.toLowerCase();
-        userTables.forEach(tbody => {
-            tbody.querySelectorAll('tr').forEach(row => {
-                const username = row.querySelector('td:nth-child(2) a').textContent.toLowerCase();
-                row.style.display = username.includes(query) ? '' : 'none';
-            });
+    sections.forEach(sec=>{
+        let visible=false;
+        sec.querySelectorAll('tr').forEach(row=>{
+            const a=row.querySelector('a');
+            a.classList.remove('highlight');
+            if(a.textContent.toLowerCase().includes(q)){
+                row.style.display='';
+                a.classList.add('highlight');
+                visible=true;
+                total++;
+            } else row.style.display='none';
         });
-        updateShowingText();
-    }
+        sec.classList.toggle('hidden', !visible);
+    });
 
-    searchBox.addEventListener('input', filterUsers);
-    document.querySelector('.search-button').addEventListener('click', filterUsers);
+    showing.textContent = total
+        ? `Showing ${total} user${total>1?'s':''}`
+        : 'No users found';
+
+    if(updateURL){
+        const url = new URL(window.location);
+        q ? url.searchParams.set('q',q) : url.searchParams.delete('q');
+        history.replaceState(null,'',url);
+    }
+}
+
+searchBox.addEventListener('input',()=>applySearch(searchBox.value.toLowerCase()));
+searchBtn.addEventListener('click',()=>applySearch(searchBox.value.toLowerCase()));
+
+const params = new URLSearchParams(window.location.search);
+if(params.get('q')){
+    searchBox.value=params.get('q');
+    applySearch(params.get('q'),false);
+}else{
+    applySearch('');
+}
 </script>
 
 </body>
