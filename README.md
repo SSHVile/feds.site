@@ -1,8 +1,8 @@
-# Feds.site
+# fedsgov.shop
 
-![Feds.site Logo](assets/images/embed.png) 
+![fedsgov.shop Logo](assets/images/embed.png) 
 
-**Feds.site** is a personal website featuring unique content, interactive pages, and an aesthetic digital experience. Built with modern web technologies, it’s optimized for both desktop and mobile devices.
+**fedsgov.shop** is a personal website featuring unique content, interactive pages, and an aesthetic digital experience. Built with modern web technologies, it’s optimized for both desktop and mobile devices.
 
 ---
 
@@ -17,7 +17,7 @@
 ---
 ## ⚠️ Legal Notice / Usage Restrictions
 
-© 2025 **SSH.Vile** — https://feds.site  
+© 2025 **SSH.Vile** — https://fedsgov.shop  
 **ALL RIGHTS RESERVED**
 
 This repository and its contents are **private and proprietary**.

@@ -4,9 +4,9 @@ To Whom It May Concern,
 
 I am the copyright owner of the following original work:
 
-Project: feds.site
-Owner: SSH.Vile
-Website: https://feds.site
+Project: /Federal
+Owner: SSH.Vile / VileFed
+Website: https://fedsgov.shop
 Repository/Content: All source code, assets, designs, and structure
 
 It has come to my attention that the following individual or entity
@@ -29,5 +29,5 @@ infringing material.
 
 Signed,
 SSH.Vile
-Owner — feds.site
+Owner — VileFed
 Date: [DATE]
