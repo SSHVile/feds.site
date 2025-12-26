@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Feds | Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Feds Official Projects Hub" />
+<meta property="og:title" content="Feds | Projects" />
+<meta property="og:description" content="Feds Official Projects Hub" />
+<meta property="og:image" content="https://fedsgov.shop/assets/images/embed.png" />
+<meta property="og:type" content="website" />
+<meta name="theme-color" content="#000000" />
+<link rel="icon" href="assets/images/favi.ico" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+html, body { margin:0; padding:0; font-family:'Inter',sans-serif; background:#0a0a0a; color:#fff; scroll-behavior:smooth; }
+a { color: inherit; text-decoration: none; }
+
+/* ===== Navbar ===== */
+nav { background:#000; padding:0.5rem 1rem; border-bottom:2px solid #222; position:sticky; top:0; z-index:999; }
+nav .container { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:0 auto; }
+nav .nav-brand a { text-decoration:none; font-weight:600; font-size:1.75rem; animation: rainbow 5s infinite; }
+nav ul { display:flex; gap:1rem; list-style:none; }
+nav ul li a { transition:0.2s; }
+nav ul li a:hover { animation: rainbow 3s infinite; }
+.hamburger { display:none; flex-direction:column; cursor:pointer; gap:4px; }
+.hamburger div { width:20px; height:2px; background:white; }
+@media(max-width:768px){ nav ul { display:none; flex-direction:column; background:#000; position:absolute; top:50px; right:1rem; padding:0.5rem; border-radius:4px; border:1px solid #222; width:150px; } nav ul.active { display:flex; } .hamburger { display:flex; } }
+@keyframes rainbow{0%{color:red;}17%{color:orange;}33%{color:yellow;}50%{color:green;}67%{color:blue;}84%{color:purple;}100%{color:red;}}
+
+/* ===== Hero ===== */
+.hero{ height:30vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:2rem 1rem; }
+.hero h1{ font-size:3rem; font-weight:600; margin-bottom:1rem; animation:rainbow 6s infinite; }
+.hero p{ max-width:600px; margin:0 auto 2rem; color:#b0b0b0; font-size:1rem; }
+
+/* ===== Project List ===== */
+#project-list { max-width:1000px; margin:2rem auto; display:grid; grid-template-columns:repeat(auto-fit, minmax(250px,1fr)); gap:1rem; }
+.project { background-color:#1a1a1a; border-left:4px solid #33ff33; padding:15px; cursor:pointer; transition:0.2s; }
+.project:hover { background-color:#262626; }
+.project-author { font-size:0.7rem; color:#888; text-transform:uppercase; margin-bottom:5px; letter-spacing:1px; }
+.project-title { font-weight:bold; color:#33ff33; }
+.project-desc { font-size:0.9rem; color:#ccc; margin-top:5px; }
+
+/* ===== Footer ===== */
+footer{ border-top:1px solid #222; padding:1.5rem; color:#777; font-size:0.85rem; }
+.footer-container { max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; }
+.footer-middle { display:flex; align-items:center; gap:1rem; }
+.footer-buttons { display:flex; gap:0.75rem; }
+.footer-btn { text-decoration:none; color:#fff; background:#0e0e0e; border:1px solid #222; padding:0.35rem 0.75rem; border-radius:4px; transition:0.3s; font-size:0.85rem; }
+.footer-btn:hover { border-color:#aa0000; background:#1a0a0a; box-shadow:0 0 6px #aa0000; }
+
+@media(max-width:600px){ .footer-container { flex-direction:column; align-items:flex-start; } .footer-middle { flex-direction:column; align-items:flex-start; gap:0.25rem; margin-top:0.5rem; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <div class="nav-brand"><a href="#">Feds</a></div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
+    <ul id="nav-links">
+      <li><a href="index">Home</a></li>
+      <li><a href="profiles">Profiles</a></li>
+      <li><a href="hoa">HOA</a></li>
+      <li><a href="join">Discord</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section class="hero">
+  <div>
+    <h1>Project List</h1>
+  </div>
+</section>
+
+<div id="project-list"></div>
+
+<footer>
+  <div class="footer-container">
+    <span class="copyright">© 2026 fedsgov.shop</span>
+    <div class="footer-middle">
+      <div class="footer-buttons">
+        <a href="legal/tos" class="footer-btn">Terms of Service</a>
+        <a href="legal/privacy" class="footer-btn">Privacy Policy</a>
+        <a href="legal/" class="footer-btn">Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('nav-links');
+hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
+
+const projects = [
+  { title: "Project Alpha", author: "Alice", desc: "A tool for managing tasks efficiently." },
+  { title: "Project Beta", author: "Bob", desc: "An experimental web app for collaboration." },
+  { title: "Example Project", author: "Charlie", desc: "This is an example project entry with an author label." },
+  { title: "Project Delta", author: "Dana", desc: "Automation scripts for workflow optimization." },
+];
+
+const listContainer = document.getElementById('project-list');
+projects.forEach(project => {
+  const projectDiv = document.createElement('div');
+  projectDiv.classList.add('project');
+  projectDiv.innerHTML = `
+    <div class="project-author">${project.author}</div>
+    <div class="project-title">${project.title}</div>
+    <div class="project-desc">${project.desc}</div>
+  `;
+  projectDiv.addEventListener('click', () => { alert(`You clicked on ${project.title}`); });
+  listContainer.appendChild(projectDiv);
+});
+</script>
+
+</body>
+</html>
