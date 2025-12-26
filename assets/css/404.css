@@ -108,6 +108,7 @@ p {
   font-size: 1.5rem;
 }
 
+/* Main button */
 .btn {
   text-decoration: none;
   color: #000;
@@ -128,6 +129,7 @@ p {
     0 0 60px rgba(200,0,0,0.8);
 }
 
+/* Footer */
 footer {
   position: absolute;
   bottom: 1rem;
@@ -136,6 +138,31 @@ footer {
   font-size: 0.85rem;
   opacity: 0.6;
   padding: 0 1rem;
+  z-index: 10; /* ensures clickable */
+}
+
+/* Footer buttons styling */
+.footer-btn {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 0, 0, 0.8);
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  box-shadow:
+    0 0 10px rgba(255,0,0,0.4),
+    0 0 20px rgba(120,0,0,0.6);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  margin: 0 0.25rem;
+}
+
+.footer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 15px rgba(255,0,0,0.6),
+    0 0 30px rgba(200,0,0,0.8);
+  background: rgba(255, 0, 0, 1);
 }
 
 /* ANIMATIONS */
@@ -156,11 +183,12 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .glitch {
-    font-size: clamp(6rem, 18vw, 10rem);
+    font-size: clamp(5rem, 18vw, 10rem);
     letter-spacing: 0.2rem;
   }
   p {
     font-size: 1.2rem;
+    margin: 0.8rem 0 1.5rem;
   }
   .btn {
     padding: 0.6rem 1.5rem;
@@ -175,6 +203,7 @@ footer {
   }
   p {
     font-size: 1rem;
+    margin: 0.6rem 0 1rem;
   }
   .btn {
     padding: 0.5rem 1rem;
@@ -182,5 +211,6 @@ footer {
   }
   footer {
     font-size: 0.75rem;
+    padding: 0 0.5rem;
   }
 }
