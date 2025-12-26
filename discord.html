@@ -19,11 +19,14 @@
   <meta name="twitter:image" content="https://fedsgov.shop/assets/images/embed.png" />
 
   <meta name="theme-color" content="#FFF5EE" />
-
-  <!-- Meta refresh redirect (3 seconds) -->
-  <meta http-equiv="refresh" content="3;url=https://discord.gg/ZzjZWpnD25">
 </head>
 <body>
   <p>Redirecting to <a href="https://discord.gg/ZzjZWpnD25">Feds Discord</a>...</p>
+
+  <!-- Instant redirect for users, tiny delay ensures Discord reads OG tags -->
+  <script>
+    // Only 1ms delay, effectively instant
+    setTimeout(() => window.location.replace("https://discord.gg/ZzjZWpnD25"), 1);
+  </script>
 </body>
 </html>
