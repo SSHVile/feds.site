@@ -5,15 +5,22 @@
   <title>Redacted Fed Files</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Discord / Open Graph -->
-  <meta property="og:title" content="‎" />
-  <meta property="og:description" content="‎" />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://fedgov.shop/fedfiles/fedfiles.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
+  <!-- REQUIRED FOR DISCORD -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fedgov.shop/fedfiles/">
+  <meta property="og:title" content="Redacted Fed Files">
+  <meta property="og:description" content=" ">
 
-  <!-- Twitter fallback -->
+  <meta property="og:image" content="https://fedgov.shop/fedfiles/fedfiles.png">
+  <meta property="og:image:secure_url" content="https://fedgov.shop/fedfiles/fedfiles.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Discord embed color -->
+  <meta name="theme-color" content="#000000">
+
+  <!-- Twitter (safe fallback) -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://fedgov.shop/fedfiles/fedfiles.png">
 
@@ -30,12 +37,12 @@
     img {
       width: 100%;
       height: 100%;
-      object-fit: contain; /* change to cover if you want crop instead */
+      object-fit: contain;
       display: block;
     }
   </style>
 </head>
 <body>
-  <img src="https://fedgov.shop/fedfiles/fedfiles.png" alt="redacted fedfiles">
+  <img src="https://fedgov.shop/fedfiles/fedfiles.png" alt="">
 </body>
 </html>
