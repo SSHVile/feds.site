@@ -298,9 +298,11 @@ hamburger.addEventListener('click', () => { navLinks.classList.toggle('active');
     let mouseX=0,mouseY=0,isMoving=false,movementTimeout=null,sparkleInterval=null;
 
     function createSparkle(){
-        const sparkle=document.createElement('div'); sparkle.className='sparkle';
+        const sparkle=document.createElement('div'); 
+        sparkle.className='sparkle';
         const offsetX=(Math.random()-0.5)*20, offsetY=(Math.random()-0.5)*20;
-        sparkle.style.left=(mouseX+offsetX)+'px'; sparkle.style.top=(mouseY+offsetY)+'px';
+        sparkle.style.left=(mouseX+offsetX)+'px'; 
+        sparkle.style.top=(mouseY+offsetY)+'px';
         sparkle.style.color=colors[Math.floor(Math.random()*colors.length)];
         sparkle.textContent=sparkleChars[Math.floor(Math.random()*sparkleChars.length)];
         document.body.appendChild(sparkle);
@@ -311,13 +313,40 @@ hamburger.addEventListener('click', () => { navLinks.classList.toggle('active');
         mouseX=e.clientX; mouseY=e.clientY;
         if(!isMoving){isMoving=true;sparkleInterval=setInterval(createSparkle,50);}
         if(movementTimeout) clearTimeout(movementTimeout);
-        movementTimeout=setTimeout(()=>{isMoving=false;if(sparkleInterval){clearInterval(sparkleInterval);sparkleInterval=null;}},100);
+        movementTimeout=setTimeout(()=>{
+            isMoving=false;
+            if(sparkleInterval){clearInterval(sparkleInterval);sparkleInterval=null;}
+        },100);
     }
 
-    function stopSparkles(){isMoving=false; if(sparkleInterval) clearInterval(sparkleInterval); if(movementTimeout) clearTimeout(movementTimeout);}
+    function stopSparkles(){
+        isMoving=false; 
+        if(sparkleInterval) clearInterval(sparkleInterval); 
+        if(movementTimeout) clearTimeout(movementTimeout);
+    }
+
     document.addEventListener('mousemove',updateMousePosition);
     document.addEventListener('mouseleave',stopSparkles);
 })();
+
+// Music setup
+let music = new Audio('assets/music/hoa.mp3'); // Replace with your music file
+music.loop = true;
+let musicPlayed = false;
+
+// Function to start music
+function startMusic() {
+    if (!musicPlayed) {
+        music.play().catch(e => console.log('Autoplay prevented:', e));
+        musicPlayed = true;
+        document.removeEventListener('click', startMusic);
+        document.removeEventListener('scroll', startMusic);
+    }
+}
+
+// Start music on first click or scroll
+document.addEventListener('click', startMusic, { once: true });
+document.addEventListener('scroll', startMusic, { once: true });
 </script>
 
 </body>
