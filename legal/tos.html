@@ -8,7 +8,7 @@
 
 <meta property="og:title" content="Feds" />
 <meta property="og:description" content="Official Feds website" />
-<meta property="og:image" content="https://fedsgov.shop/assets/images/embed.png" />
+<meta property="og:image" content="https://feds.top/assets/images/embed.png" />
 <meta property="og:type" content="website" />
 
 <meta name="theme-color" content="#000000" />
@@ -18,13 +18,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ===== General ===== */
 input, textarea, select { font-size: 16px !important; outline: none !important; box-shadow: none !important; }
 *::-webkit-scrollbar { display: none; }
 html { -ms-overflow-style: none; scrollbar-width: none; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #0a0a0a; color: #fff; margin: 0; padding: 0; }
 
-/* ===== Navbar ===== */
 nav {
     background:#000;
     padding:0.5rem 1rem;
@@ -57,21 +55,10 @@ nav ul li a {
     font-weight:500;
     transition:0.2s;
 }
-nav ul li a:hover {
-    animation: rainbow 3s infinite;
-}
-.hamburger {
-    display:none;
-    flex-direction:column;
-    cursor:pointer;
-    gap:4px;
-}
-.hamburger div {
-    width:20px;
-    height:2px;
-    background:white;
-}
-@media(max-width:768px) {
+nav ul li a:hover { animation: rainbow 3s infinite; }
+.hamburger { display:none; flex-direction:column; cursor:pointer; gap:4px; }
+.hamburger div { width:20px; height:2px; background:white; }
+@media(max-width:768px){
     nav ul {
         display:none;
         flex-direction:column;
@@ -93,11 +80,9 @@ nav ul li a:hover {
     84%{color:purple;}100%{color:red;}
 }
 
-/* ===== Container ===== */
 .main-container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
 @media (max-width: 768px) { .main-container { margin: 10px auto; padding: 0 5px; max-width: 100%; } }
 
-/* ===== Sections ===== */
 .contact-section { margin-bottom: 30px; }
 .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 15px; border-bottom: 2px solid #333; padding-bottom: 10px; }
 .contact-item { margin-bottom: 10px; color: #fff; font-size: .98rem; line-height: 1.5; }
@@ -108,15 +93,10 @@ nav ul li a:hover {
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
   <div class="container">
-    <div class="nav-brand">
-      <a href="#">Feds</a>
-    </div>
-    <div class="hamburger" id="hamburger">
-      <div></div><div></div><div></div>
-    </div>
+    <div class="nav-brand"><a href="#">Feds</a></div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
     <ul id="nav-links">
       <li><a href="../index">Home</a></li>
       <li><a href="../profiles">Profiles</a></li>
@@ -126,47 +106,88 @@ nav ul li a:hover {
   </div>
 </nav>
 
-<!-- Main TOS Content -->
 <main>
-    <div class="main-container">
+<div class="main-container">
 
-        <div class="contact-section">
-            <h2 class="section-title">Terms of Service</h2>
-            <div class="contact-item">
-                All content hosted on /Feds is subject to removal under certain conditions, including but not limited to violations of our policies or the issuance of a court order in accordance with applicable laws. /Feds reserves the right, at its sole discretion, to remove any content for any reason that violates this policy.
-            </div>
+    <div class="contact-section">
+        <h2 class="section-title">Acceptance of Terms</h2>
+        <div class="contact-item">
+            By accessing or using /Feds, you agree to be bound by these Terms of Service. If you do not agree, you must immediately discontinue use of this website.
         </div>
-
-        <div class="contact-section">
-            <h2 class="section-title">HOA Content Removal</h2>
-            <div class="contact-item">
-                The following HOA content can be removed:
-                <ul>
-                    <li>Personal information of individuals under the age of 15</li>
-                    <li>Links to explicit material involving minors</li>
-                    <li>Direct threats of physical harm, terrorism, or swatting</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="contact-section">
-            <h2 class="section-title">User Information</h2>
-            <div class="contact-item">
-                /Feds only collects information that users willingly submit to their profiles, such as profile pictures, banners, music, and social links. No additional user data is collected, tracked, or stored.
-            </div>
-        </div>
-
-        <div class="contact-section">
-            <h2 class="section-title">Law Enforcement Requests</h2>
-            <div class="contact-item">
-                /Feds responds to law enforcement requests only with valid legal documentation. Since we only store voluntarily submitted profile content, only that information is accessible.
-            </div>
-            <div class="contact-item">
-                Requests should be sent via email to <a href="mailto:admin@fedsgov.shop" class="contact-link">admin@fedsgov.shop</a>.
-            </div>
-        </div>
-
     </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Purpose of the Platform</h2>
+        <div class="contact-item">
+            /Feds is an informational, educational, and archival platform. It does not provide services, tools, instructions, or assistance related to illegal activity, cybercrime, or exploitation.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Prohibited Use</h2>
+        <div class="contact-item">
+            You may not use /Feds to engage in, promote, facilitate, coordinate, or assist with any unlawful activity, including but not limited to hacking, doxing, harassment, fraud, swatting, exploitation, or abuse.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">HOA Content & Removal</h2>
+        <div class="contact-item">
+            The HOA (Hall of Autism) contains information derived exclusively from publicly available sources. All listings are allegations only and do not constitute factual claims or legal judgments.
+        </div>
+        <div class="contact-item">
+            HOA content may be removed if it includes:
+            <ul>
+                <li>Personal information of individuals under the age of 15</li>
+                <li>Explicit material involving minors</li>
+                <li>Direct threats of violence, terrorism, or swatting</li>
+                <li>Material proven to be unlawfully obtained or non-public</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Copyright & DMCA</h2>
+        <div class="contact-item">
+            /Feds respects intellectual property rights and claims applicable safe-harbor protections under the Digital Millennium Copyright Act (DMCA).
+        </div>
+        <div class="contact-item">
+            Upon receipt of a valid and complete DMCA takedown notice, disputed content will be reviewed and removed where legally required.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">User Information</h2>
+        <div class="contact-item">
+            /Feds only stores information voluntarily submitted by users to their profiles, such as profile images, banners, music, and social links. No additional tracking, analytics, or behavioral data is collected.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Law Enforcement Requests</h2>
+        <div class="contact-item">
+            /Feds cooperates with lawful requests from authorized law enforcement agencies when accompanied by valid legal documentation.
+        </div>
+        <div class="contact-item">
+            Because /Feds does not retain private user data, we cannot provide information that we do not possess. Requests should be submitted to <a href="mailto:admin@feds.top" class="contact-link">admin@feds.top</a>.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Limitation of Liability</h2>
+        <div class="contact-item">
+            /Feds disclaims all liability for reliance on publicly sourced information, third-party material, or user interpretation of content. Use of the site is at your own risk.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Modification & Termination</h2>
+        <div class="contact-item">
+            /Feds reserves the right to modify these Terms or remove content at any time, for any reason, without prior notice.
+        </div>
+    </div>
+
+</div>
 </main>
 
 <script>

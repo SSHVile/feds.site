@@ -8,7 +8,7 @@
 
 <meta property="og:title" content="Feds" />
 <meta property="og:description" content="Official Feds website" />
-<meta property="og:image" content="https://fedsgov.shop/assets/images/embed.png" />
+<meta property="og:image" content="https://feds.top/assets/images/embed.png" />
 <meta property="og:type" content="website" />
 
 <meta name="theme-color" content="#000000" />
@@ -18,13 +18,11 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ===== General ===== */
 input, textarea, select { font-size: 16px !important; outline: none !important; box-shadow: none !important; }
 *::-webkit-scrollbar { display: none; }
 html { -ms-overflow-style: none; scrollbar-width: none; }
 body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; background: #0a0a0a; color: #fff; margin: 0; padding: 0; }
 
-/* ===== Navbar ===== */
 nav {
     background:#000;
     padding:0.5rem 1rem;
@@ -57,21 +55,10 @@ nav ul li a {
     font-weight:500;
     transition:0.2s;
 }
-nav ul li a:hover {
-    animation: rainbow 3s infinite;
-}
-.hamburger {
-    display:none;
-    flex-direction:column;
-    cursor:pointer;
-    gap:4px;
-}
-.hamburger div {
-    width:20px;
-    height:2px;
-    background:white;
-}
-@media(max-width:768px) {
+nav ul li a:hover { animation: rainbow 3s infinite; }
+.hamburger { display:none; flex-direction:column; cursor:pointer; gap:4px; }
+.hamburger div { width:20px; height:2px; background:white; }
+@media(max-width:768px){
     nav ul {
         display:none;
         flex-direction:column;
@@ -93,11 +80,9 @@ nav ul li a:hover {
     84%{color:purple;}100%{color:red;}
 }
 
-/* ===== Container ===== */
 .main-container { max-width: 1200px; margin: 20px auto; padding: 0 20px; }
 @media (max-width: 768px) { .main-container { margin: 10px auto; padding: 0 5px; max-width: 100%; } }
 
-/* ===== Sections ===== */
 .contact-section { margin-bottom: 30px; }
 .section-title { font-size: 1.3rem; color: #fff; margin-bottom: 15px; border-bottom: 2px solid #333; padding-bottom: 10px; }
 .contact-item { margin-bottom: 10px; color: #fff; font-size: .98rem; line-height: 1.5; }
@@ -108,15 +93,10 @@ nav ul li a:hover {
 </head>
 <body>
 
-<!-- Navbar -->
 <nav>
   <div class="container">
-    <div class="nav-brand">
-      <a href="#">Feds</a>
-    </div>
-    <div class="hamburger" id="hamburger">
-      <div></div><div></div><div></div>
-    </div>
+    <div class="nav-brand"><a href="#">Feds</a></div>
+    <div class="hamburger" id="hamburger"><div></div><div></div><div></div></div>
     <ul id="nav-links">
       <li><a href="../index">Home</a></li>
       <li><a href="../profiles">Profiles</a></li>
@@ -126,38 +106,66 @@ nav ul li a:hover {
   </div>
 </nav>
 
-<!-- Main Legal Content -->
 <main>
-    <div class="main-container">
-        <div class="contact-section">
-            <h2 class="section-title">Resources</h2>
-            <div class="contact-item">
-                <ul>
-                    <li><a href="/tos" class="contact-link">Terms of Service</a></li>
-                    <li><a href="/privacy" class="contact-link">Privacy Policy</a></li>
-                    <li><a href="" target="_blank" class="contact-link">Telegram Channel</a></li>
-                </ul>
-            </div>
-        </div>
+<div class="main-container">
 
-        <div class="contact-section">
-            <h2 class="section-title">HOA Removal Guidelines</h2>
-            <div class="contact-item">
-                /Feds will review HOA removal requests that are a violation of our Terms of Service ("TOS").
-            </div>
-        </div>
-
-        <div class="contact-section">
-            <h2 class="section-title">Law Enforcement Request Guidelines</h2>
-            <div class="contact-item">
-                /Feds will respond to all law enforcement requests from authorized officials. Law Enforcement Requests Guidelines show how authorized law enforcement officials and agents can contact us to request HOA removal in accordance with applicable laws and policies. To facilitate processing, we require that all requests be addressed directly to the /Feds admin account email. Please include proper Mutual Legal Assistance Treaty documents if cross-border law enforcement is involved.
-            </div>
-
-            <div class="contact-item">
-                /Feds is a static site and does not retain any profile/user information that is not directly provided to /Feds such as social links, pfps etc. We cannot cooperate with data requests because we store no information that isn't public. We will still grant information access we have if accompanied by a valid court order. We will voluntarily cooperate with law enforcement requests from all jurisdictions for HOA removal requests when the content violates our TOS. All law enforcement requests should be submitted via email to <a href="mailto:admin@fedsgov.shop" class="contact-link">admin@fedsgov.shop</a> for processing.
-            </div>
+    <div class="contact-section">
+        <h2 class="section-title">Resources</h2>
+        <div class="contact-item">
+            <ul>
+                <li><a href="/tos" class="contact-link">Terms of Service</a></li>
+                <li><a href="/privacy" class="contact-link">Privacy Policy</a></li>
+                <li><a href="" target="_blank" class="contact-link">Telegram Channel</a></li>
+            </ul>
         </div>
     </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">HOA Removal Guidelines</h2>
+        <div class="contact-item">
+            /Feds reviews HOA removal requests when content is demonstrated to violate our Terms of Service, applicable law, or platform policies.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Law Enforcement Request Guidelines</h2>
+        <div class="contact-item">
+            /Feds cooperates with legitimate law enforcement requests submitted by authorized officials in accordance with applicable laws. Requests must include proper legal documentation.
+        </div>
+        <div class="contact-item">
+            /Feds is a static informational website and does not collect, log, or retain non-public user data. We cannot provide information that we do not possess. Valid legal orders may be honored only for content within our control. Requests should be sent to <a href="mailto:admin@feds.top" class="contact-link">admin@feds.top</a>.
+        </div>
+    </div>
+
+    <div class="contact-section">
+        <h2 class="section-title">Legal Disclaimer, DMCA Policy & Prohibited Use</h2>
+
+        <div class="contact-item">
+            /Feds does not support, endorse, facilitate, promote, coordinate, or participate in cybercrime, hacking, doxing, harassment, fraud, exploitation, or any other unlawful activity. Any attempt to use this platform for illegal purposes is expressly prohibited.
+        </div>
+
+        <div class="contact-item">
+            All content hosted on /Feds is provided strictly for educational, informational, research, and archival purposes. /Feds does not provide tools, services, instructions, or operational support that could enable illegal or malicious activity.
+        </div>
+
+        <div class="contact-item">
+            All pastes, references, and materials displayed are derived exclusively from publicly available sources and open records lawfully accessible at the time of publication. /Feds does not host stolen data, hacked material, breached databases, copyrighted works distributed unlawfully, or non-public personal information.
+        </div>
+
+        <div class="contact-item">
+            The HOA (Hall of Autism) operates solely as a public information index documenting allegations of predatory or exploitative behavior based on publicly accessible evidence. All listings are allegations only and do not constitute statements of fact, legal conclusions, or criminal convictions.
+        </div>
+
+        <div class="contact-item">
+            /Feds functions as an informational intermediary and claims applicable safe-harbor protections under relevant laws, including the Digital Millennium Copyright Act (DMCA). Upon receipt of a valid and complete takedown request, disputed content will be reviewed and addressed in accordance with legal requirements.
+        </div>
+
+        <div class="contact-item">
+            /Feds disclaims all liability for third-party content, external sources, or user interpretation of information presented. We reserve the right to remove, restrict, or modify any content at our sole discretion or in response to lawful requests.
+        </div>
+    </div>
+
+</div>
 </main>
 
 <script>
