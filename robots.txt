@@ -6,4 +6,4 @@ Disallow: /admin/
 Disallow: /private/
 Disallow: /test/
 
-Sitemap: https://fedsgov.shop/sitemap.xml
+Sitemap: https://fedgov.shop/sitemap.xml

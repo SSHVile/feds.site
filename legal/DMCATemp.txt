@@ -6,7 +6,7 @@ I am the copyright owner of the following original work:
 
 Project: /Federal
 Owner: SSH.Vile / VileFed
-Website: https://fedsgov.shop
+Website: https://fedgov.shop
 Repository/Content: All source code, assets, designs, and structure
 
 It has come to my attention that the following individual or entity
